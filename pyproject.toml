@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools >= 78.0.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "DETR-rdd"
+version = "0.1.0"
+authors = [
+    {name = "Nguyen Hai Duong", email="duongng2911@gmail.com"},
+]
+description = ""
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "Apache-2.0"
+license-files = ["LICEN[CS]E*"]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls] 
+Repository = "https://github.com/duongnguyen-dev/DETR-rdd"
+"Bug Tracker" = "https://github.com/duongnguyen-dev/DETR-rdd/issues"
