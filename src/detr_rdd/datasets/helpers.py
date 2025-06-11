@@ -1,4 +1,5 @@
 import os
+import torch
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw, ImageFont
@@ -47,3 +48,11 @@ def visualize_random_example(images_paths, annotations_paths):
   plt.imshow(img)
   plt.axis('off') # Hide axes
   plt.show()
+
+def convert_xyxy_to_cxcywh(bbox):
+  xmin, ymin, xmax, ymax = bbox
+  b = [torch.tensor((xmin + xmax) / 2, dtype=torch.float32),
+       torch.tensor((ymin + ymax) / 2, dtype=torch.float32),
+       torch.tensor((xmax - xmin), dtype=torch.float32),
+       torch.tensor((ymax - ymin), dtype=torch.float32)]
+  return torch.stack(b, dim=-1)

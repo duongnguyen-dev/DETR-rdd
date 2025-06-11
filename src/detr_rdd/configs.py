@@ -1,4 +1,4 @@
-CLASS_MAPPING = {
+CLASS = {
     "D00": {
         "name": "longitudinal_crack",
         "color": "red"
@@ -16,3 +16,5 @@ CLASS_MAPPING = {
         "color": "blue"
     },
 }
+
+CLASS_MAPPING = ["D00", "D10", "D20", "D40"]
