@@ -1,5 +1,4 @@
 import torch
-import random 
 import torchvision.transforms.functional as F
 import torchvision.transforms as T
 
@@ -13,9 +12,11 @@ class Resize(object):
     ratio_width, ratio_height = ratios
 
     annotations = target["annotations"]
-    scaled_annotations = torch.as_tensor(annotations, dtype=torch.float32) * torch.as_tensor([ratio_width, ratio_height, ratio_width, ratio_height])
-    target["annotations"] = scaled_annotations
-
+    if len(annotations) != 0:
+      scaled_annotations = torch.as_tensor(annotations, dtype=torch.float32) * torch.as_tensor([ratio_width, ratio_height, ratio_width, ratio_height])
+      target["annotations"] = scaled_annotations
+    else:
+      target["annotations"] = torch.as_tensor(annotations, dtype=torch.float32)
     return rescaled_img, target
 
 class Normalize(object):
@@ -58,13 +59,5 @@ class Compose(object):
 
 class ToTensor(object):
   def __call__(self, image, target):
+    target["labels"] = torch.as_tensor(target["labels"], dtype=torch.int64)
     return T.functional.to_tensor(image), target
-
-def make_transform():
-   return Compose([
-      Resize(),
-      Compose([
-        ToTensor(),
-        Normalize()      
-      ])
-  ])
