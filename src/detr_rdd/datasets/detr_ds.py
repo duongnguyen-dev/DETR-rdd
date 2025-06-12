@@ -9,7 +9,7 @@ class DETRDataset(Dataset):
     self.images = [x['image'] for x in self.ds]
     self.target = [x['target'] for x in self.ds]
     self.transform = transform
-  
+
   def prepare_dataset(self, images_paths, annotations_paths):
     ds = []
 
@@ -33,8 +33,9 @@ class DETRDataset(Dataset):
 
         labels.append(label)
         annotated_objs.append([xmin, ymin, xmax, ymax])
-
-      ds.append({"image": img, "target": {"annotations": annotated_objs, "labels": labels}})
+        
+      if len(annotated_objs) != 0:
+        ds.append({"image": img, "target": {"annotations": annotated_objs, "labels": labels}})
 
     return ds
 
