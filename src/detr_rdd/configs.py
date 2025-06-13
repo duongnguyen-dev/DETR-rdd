@@ -17,4 +17,10 @@ CLASS = {
     },
 }
 
-CLASS_MAPPING = ["D00", "D10", "D20", "D40"]
+CLASS_MAPPING = {
+    0: "longitudinal_crack",
+    1: "transverse_crack",
+    2: "aligator_crack",
+    3: "pothole",
+    4: "other_corruptions"
+}
