@@ -1,9 +1,14 @@
 loguru>=0.7.3
-numpy>=1.25.0,<2.0
-torch>=2.6.0
-torchvision==0.21.0
 requests==2.32.3
+timm==1.0.15
+
+numpy>=1.25.0,<2.0
 matplotlib==3.10.3
 albumentations==2.0.8
 scikit-learn==1.7.0
 transformers[torch]>=4.52.4
+torch>=2.6.0
+torchvision==0.21.0
+torchmetrics>=1.7.3
+gradio>=5.33.2
+spaces>=0.37.0
