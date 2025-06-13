@@ -24,3 +24,5 @@ CLASS_MAPPING = {
     3: "pothole",
     4: "other_corruptions"
 }
+
+CHECKPOINT = "facebook/detr-resnet-50"
