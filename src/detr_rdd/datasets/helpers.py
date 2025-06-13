@@ -152,7 +152,7 @@ def transform_aug_ann(examples, transform):
 
   return image_processor(images=images, annotations=targets, return_tensors="pt")
 
-def transform_train(examples, mo):
+def transform_train(examples):
   return transform_aug_ann(examples, transform=make_transform("train"), )
 
 def transform_val(examples):
