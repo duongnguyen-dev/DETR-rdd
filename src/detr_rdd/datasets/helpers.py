@@ -168,7 +168,7 @@ def make_transformed_dataset(X_train, y_train, X_test, y_test):
   return transformed_train_ds, transformed_val_ds
 
 def create_dataset(dataset_dir):
-  X_train, y_train, X_test, y_test = get_filepath(dataset_dir)
+  X_train, X_test, y_train, y_test = get_filepath(dataset_dir)
   transformed_train_ds, transformed_val_ds = make_transformed_dataset(X_train, y_train, X_test, y_test)
 
   return transformed_train_ds, transformed_val_ds
