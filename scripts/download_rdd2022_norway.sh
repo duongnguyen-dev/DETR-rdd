@@ -3,7 +3,7 @@
 # Get the directory where the script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
-COUNTRY="India"
+COUNTRY="Norway"
 
 
 # Change to project root directory
@@ -16,7 +16,7 @@ mkdir -p "$PROJECT_ROOT/data"
 DATASET_URL="https://bigdatacup.s3.ap-northeast-1.amazonaws.com/2022/CRDDC2022/RDD2022/Country_Specific_Data_CRDDC2022/RDD2022_${COUNTRY}.zip"
 ZIP_PATH="$PROJECT_ROOT/data/RDD2022_${COUNTRY}.zip"
 
-echo "Downloading RDD2022 India dataset..."
+echo "Downloading RDD2022 ${COUNTRY} dataset..."
 wget -O "$ZIP_PATH" "$DATASET_URL"
 
 # Check if download was successful
@@ -30,8 +30,8 @@ if [ $? -eq 0 ]; then
     # Remove the zip file
     rm "$ZIP_PATH"
     
-    echo "Dataset RDD2022 India was installed successfully to $PROJECT_ROOT/data"
+    echo "Dataset RDD2022 Japan was installed successfully to $PROJECT_ROOT/data"
 else
-    echo "There was an error while downloading dataset RDD2022 Ind"
+    echo "There was an error while downloading dataset RDD2022 ${COUNTRY}"
     exit 1
 fi 
